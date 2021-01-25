@@ -3,7 +3,8 @@ class UsersController < ApplicationController
     end
 
     def show
-        @user = User.find_by(params[:id])
+        # binding.pry
+        @user = User.find_by(:id => session[:user_id])
     end
 
     def new
