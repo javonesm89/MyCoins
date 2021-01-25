@@ -5,6 +5,7 @@ class UsersController < ApplicationController
     def show
         # binding.pry
         @user = User.find_by(:id => session[:user_id])
+        redirect_to root_path if !@user
     end
 
     def new
@@ -17,7 +18,7 @@ class UsersController < ApplicationController
             session[:user_id] = @user.id
             redirect_to user_path(@user)
         else
-            redirect_to root_path
+            render :new
         end
     end
 

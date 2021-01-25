@@ -4,4 +4,5 @@ Rails.application.routes.draw do
   resources :users
 
   delete '/logout' => 'sessions#destroy'
+  get '/login' => 'sessions#create'
 end
