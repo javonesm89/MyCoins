@@ -1,11 +1,13 @@
 Rails.application.routes.draw do
-  resources :strategies
-  resources :actions
   root "users#index"
   
-  resources :users
+  resources :users do 
+    resources :strategies
+  end
+  resources :actions
 
   get '/login' => 'sessions#new'
   post '/login' => 'sessions#create'
   delete '/logout' => 'sessions#destroy'
+  
 end
