@@ -3,7 +3,6 @@ class UsersController < ApplicationController
     end
 
     def show
-        # binding.pry
         @user = User.find_by(:id => session[:user_id])
         redirect_to root_path if !@user
     end
