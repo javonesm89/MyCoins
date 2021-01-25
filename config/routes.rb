@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :strategies
+  resources :actions
   root "users#index"
   
   resources :users

@@ -10,7 +10,25 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_01_25_184851) do
+ActiveRecord::Schema.define(version: 2021_01_25_225040) do
+
+  create_table "actions", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "strategies", force: :cascade do |t|
+    t.string "goal"
+    t.string "path"
+    t.integer "amount"
+    t.integer "user_id", null: false
+    t.integer "action_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["action_id"], name: "index_strategies_on_action_id"
+    t.index ["user_id"], name: "index_strategies_on_user_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "name"
@@ -21,4 +39,6 @@ ActiveRecord::Schema.define(version: 2021_01_25_184851) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  add_foreign_key "strategies", "actions"
+  add_foreign_key "strategies", "users"
 end
