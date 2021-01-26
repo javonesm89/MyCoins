@@ -1,5 +1,9 @@
 class ActionsController < ApplicationController
     def show
-        @action = Action.find_by(:id => params[:id])
+        if session[:user_id] && @user = User.find_by(:id => params[:id]) 
+            @action = @user.actions.find_by(:id => params[:id])
+        else
+            @action = Action.find_by(:id => params[:id])
+        end
     end
 end

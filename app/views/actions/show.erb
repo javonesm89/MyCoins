@@ -4,4 +4,5 @@
     <% @action.strategies.each do |strat| %>
         <%= strat.goal %> - <%= strat.user.name %><p>
     <% end %>
+    <%= link_to "BACK TO DASHBOARD", user_path(@user) %>
 <% end %>
