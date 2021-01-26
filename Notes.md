@@ -1,6 +1,6 @@
 Your models must:
 
-_ Include at least one has_many, at least one belongs_to, and at least two has_many :through relationships
+X Include at least one has_many, at least one belongs_to, and at least two has_many :through relationships
 
 _ Include a many-to-many relationship implemented with has_many :through associations. The join table must include a user-submittable attribute — that is to say, some attribute other than its foreign keys that can be submitted by the app's user
 
@@ -14,7 +14,7 @@ _ Your authentication system must also allow login from some other service. Face
 
 _ You must include and make use of a nested resource with the appropriate RESTful URLs.
 
-_ You must include a nested new route with form that relates to the parent resource
+X You must include a nested new route with form that relates to the parent resource
 
 _ You must include a nested index or show route
 
@@ -30,6 +30,6 @@ _ Logic present in your controllers should be encapsulated as methods in your mo
 
 _ Your views should use helper methods and partials when appropriate.
 
-_ Follow patterns in the Rails Style Guide and the Ruby Style Guide.
+X Follow patterns in the Rails Style Guide and the Ruby Style Guide.
 
-_ Do not use scaffolding to build your project. Your goal here is to learn. Scaffold is a way to get up and running quickly, but learning a lot is not one of the benefits of scaffolding.
+X Do not use scaffolding to build your project. Your goal here is to learn. Scaffold is a way to get up and running quickly, but learning a lot is not one of the benefits of scaffolding.

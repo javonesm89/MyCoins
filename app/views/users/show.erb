@@ -7,7 +7,7 @@ DASHBOARD:
 <% if @user.strategies.any? %>
 
     <% @user.strategies.each do |st| %><p>
-        <%= st.goal %>    
+        <%= link_to st.goal, user_strategy_path(@user,st) %>    
     <% end %>
 
 <% end %>

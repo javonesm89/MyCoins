@@ -1,4 +1,14 @@
 class StrategiesController < ApplicationController
+    
+    def show
+        if session[:user_id] && @user = User.find_by(:id => params[:user_id])
+            @strategy = @user.strategies.find_by(:id => params[:id])
+        else
+            flash[:error] = "STRATEGIES CAN ONLY BE VIEWED BY THEIR CREATOR"
+            redirect_to root_path
+        end
+    end
+    
     def new
         if session[:user_id] && @user = User.find_by(:id => params[:user_id])
             @strategy = @user.strategies.build
