@@ -1,4 +1,10 @@
-<%= @user.name %>
+<h4><%= @user.name.upcase %></h4> | 
+<p>
+<% if @user.salary == 0 %>
+<div>
+    <h3>Salary hasn't been set. Set now.</h3>
+</div>
+<% end %>
 <p>
     <% @actions.each do |action| %>
         <%= link_to action.name, user_action_path(@user,action) %> |
