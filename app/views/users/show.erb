@@ -1,5 +1,9 @@
 <%= @user.name %>
 <p>
+    <%= link_to 'SAVE', actions_path %> |
+    <%= link_to 'SPEND', actions_path %> |
+    <%= link_to 'INVEST', actions_path %> |
+<p>
 <%= link_to "New Strategy", new_user_strategy_path(@user) %>
 
 <p>
