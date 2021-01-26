@@ -1,9 +1,9 @@
 <h1><%= @action.name %></h1>
 
 <% if @action.strategies.any? %>
-    <% @action.strategies.each do |strat| %>
-        <%= strat.goal %> - <%= strat.user.name %><p>
+    <% @action.strategies.each do |s| %>
+        <%= s.goal %> - <%= s.user.name %><p>
     <% end %>
-    <%= link_to "BACK TO DASHBOARD", user_path() %>
-    <%= link_to "New Strategy", new_user_strategy_path() %>
+        <%= link_to "DASHBOARD", user_path %> |
+        <%= link_to "NEW", new_user_strategy_path %>
 <% end %>
