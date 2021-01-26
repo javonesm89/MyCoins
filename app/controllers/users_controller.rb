@@ -28,16 +28,14 @@ class UsersController < ApplicationController
     end
     
     def update
-        binding.pry
-        # if session[:user_id] && @user = User.find_by(:id => params[:id])
-        #     @user.update(user_params[:salary])
-        #     binding.pry
-        #     if @user.save
-        #         redirect_to user_path(@user)
-        #     else
-        #         redirect_to root_path
-        #     end
-        # end   
+        if session[:user_id] && @user = User.find_by(:id => params[:id])
+            @user.update(user_params)
+            if @user.save
+                redirect_to user_path(@user)
+            else
+                redirect_to root_path
+            end
+        end   
     end
     
     
