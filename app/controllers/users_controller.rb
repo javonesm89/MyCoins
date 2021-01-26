@@ -1,14 +1,11 @@
 class UsersController < ApplicationController
+    helper_method :current_user
+    
     def index
     end
 
     def show
-        if session[:user_id] && @user = User.find_by(:id => params[:id]) 
-                @user
-                @actions = Action.all
-        else
-            redirect_to root_path if !@user
-        end
+        current_user
     end
 
     def new
@@ -27,6 +24,14 @@ class UsersController < ApplicationController
     end
 
     private
+
+    def current_user
+        if session[:user_id] && @user = User.find_by(:id => params[:id])
+            @actions = Action.all
+        else 
+            redirect_to root_path
+        end
+    end
 
     def user_params
         params.require(:user).permit(:name,:email,:salary,:password)

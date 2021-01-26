@@ -1,8 +1,9 @@
 class SessionsController < ApplicationController
     def create
-        if user = User.find_by(:email => params[:email]).authenticate(params[:password])
-            session[:user_id] = user.id
-            redirect_to user_path(user)
+        user = User.find_by(:email => params[:email])
+        if user && user.authenticate(params[:password])
+           session[:user_id] = user.id
+           redirect_to user_path(user)
         else
             flash[:alert] = "Unable to find user"
             redirect_to login_path

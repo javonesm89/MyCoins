@@ -6,8 +6,6 @@
     <%= link_to "LOGOUT", logout_path, :method => 'delete' %> 
 <p>
 
-<%= link_to "New Strategy", new_user_strategy_path(@user) %>
-
 <p>
 DASHBOARD:
 <% if @user.strategies.any? %>
