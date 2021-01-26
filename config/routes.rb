@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   root "users#index"
   
+  resources :strategies
+
   resources :users do 
     resources :strategies
   end

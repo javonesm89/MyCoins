@@ -3,10 +3,8 @@ class UsersController < ApplicationController
     end
 
     def show
-        if session[:user_id] && @user = User.find_by(:id => session[:user_id])
-            if params[:id] == @user.id
+        if session[:user_id] && @user = User.find_by(:id => params[:id]) 
                 @user
-            end
         else
             redirect_to root_path if !@user
         end

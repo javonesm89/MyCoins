@@ -1,0 +1,8 @@
+<%= form_for(@strategy) do |f| %>
+    <%= f.hidden_field :user_id, :value => @strategy.user.id %>
+    Choose your plan of action: <%= f.collection_select :action_id, @actions, :id, :name%><p>
+    Goal: <%= f.text_field :goal %>
+    Path: <%= f.text_field :path %>
+    Amount: $<%= f.number_field :amount %>
+    <%= f.submit "Create Strategy" %>
+<% end %>

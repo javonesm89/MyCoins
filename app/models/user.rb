@@ -4,4 +4,7 @@ class User < ApplicationRecord
     validates :password, :presence => true, :length => {:minimum => 3}
     
     has_secure_password
+
+    has_many :strategies
+    has_many :actions, through: :strategies
 end
