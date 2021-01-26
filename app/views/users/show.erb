@@ -1,9 +1,11 @@
 <%= @user.name %>
 <p>
-    <%= link_to 'SAVE', actions_path %> |
-    <%= link_to 'SPEND', actions_path %> |
-    <%= link_to 'INVEST', actions_path %> |
+    <% @actions.each do |action| %>
+        <%= link_to action.name, action_path(action) %> |
+    <% end %>
+    <%= link_to "LOGOUT", logout_path, :method => 'delete' %> 
 <p>
+
 <%= link_to "New Strategy", new_user_strategy_path(@user) %>
 
 <p>
@@ -16,4 +18,3 @@ DASHBOARD:
 
 <% end %>
 <p>
-<%= link_to "Logout", logout_path, :method => 'delete' %> 

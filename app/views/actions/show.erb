@@ -1,0 +1,7 @@
+<h1><%= @action.name %></h1>
+
+<% if @action.strategies.any? %>
+    <% @action.strategies.each do |strat| %>
+        <%= strat.goal %> - <%= strat.user.name %><p>
+    <% end %>
+<% end %>

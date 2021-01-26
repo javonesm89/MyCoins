@@ -5,6 +5,7 @@ class UsersController < ApplicationController
     def show
         if session[:user_id] && @user = User.find_by(:id => params[:id]) 
                 @user
+                @actions = Action.all
         else
             redirect_to root_path if !@user
         end
