@@ -10,6 +10,7 @@ class StrategiesController < ApplicationController
     end
     
     def new
+        # binding.pry
         if session[:user_id] && @user = User.find_by(:id => params[:user_id])
             @strategy = @user.strategies.build
             @actions = Action.all
