@@ -27,6 +27,12 @@ class UsersController < ApplicationController
         end
     end
     
+    def edit
+        if session[:user_id] && @user = User.find_by(:id => params[:id])
+            @user
+        end
+    end
+    
     def update
         if session[:user_id] && @user = User.find_by(:id => params[:id])
             @user.update(user_params)

@@ -1,0 +1,5 @@
+<%= form_for(@user) do |f| %>
+    SALARY: <%= f.number_field :salary %>
+    PASSWORD: <%= f.password_field :password %>
+    <%= f.submit "Submit"%>
+<% end %>
