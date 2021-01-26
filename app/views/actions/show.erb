@@ -2,8 +2,8 @@
 
 <% if @action.strategies.any? %>
     <% @action.strategies.each do |s| %>
-        <%= s.goal %> - <%= s.user.name %><p>
+        <%= link_to "#{s.goal} - #{s.user.name}", user_strategy_path(s) %><p>
     <% end %>
-        <%= link_to "DASHBOARD", user_path %> |
-        <%= link_to "NEW", new_user_strategy_path %>
+        <%= link_to "DASHBOARD", user_path() %> |
+        <%= link_to "NEW", new_user_strategy_path() %>
 <% end %>
