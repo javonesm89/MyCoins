@@ -6,4 +6,8 @@
     <% end %>
         <%= link_to "DASHBOARD", user_path() %> |
         <%= link_to "NEW", new_user_strategy_path() %>
+
 <% end %>
+
+<%= link_to "DASHBOARD", user_path(params[:user_id]) %>
+<%= link_to "NEW", new_user_strategy_path %>
