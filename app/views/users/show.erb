@@ -1,3 +1,17 @@
+TO SIMPLIFY FOR PURPOSES OF THIS APP, TAXES WILL ASSUMED FOR A SINGLE FILER WILL BE AS FOLLOWED:
+
+0-10,000 * .1 OF AMOUNT
+10,000-40,000 * .22 OF AMOUT OF OVER 10,000 + 1,000
+40,000 - 90,000 * .22 OF AMOUNT OVER 40,000 + 4,7000
+90,000 - 180,000 * .24 OF AMOUNT OVER 90,000 + 14,7000 
+180,000 - 300,000 * .32 OF AMOUNT OVER 180,000 + 33,000
+300,000 - 500,000 * .34 OF AMOUNT OVER 300,000 + 48,000
+500,000 *.37 OF AMOUNT OVER 500,000 + 157,000
+<p>
+
+
+
+
 <%= @user.name.upcase %> | SALARY 
 <% if @user.salary == 0 %>
     <h3>Salary hasn't been set. Set now.</h3>
@@ -7,7 +21,7 @@
         <%= f.submit "Update Salary" %>
     <% end %>
    <% else %>
-    <%= @user.salary %>
+    <%= @user.adjust_for_taxes %>
 <% end %>
 <p>
 CURRENT EMAIL: <%= @user.email %>
