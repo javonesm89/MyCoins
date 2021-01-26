@@ -1,9 +1,13 @@
-<h4><%= @user.name.upcase %></h4> | 
-<p>
+<%= @user.name.upcase %> | 
 <% if @user.salary == 0 %>
-<div>
     <h3>Salary hasn't been set. Set now.</h3>
-</div>
+    <%= form_for(@user) do |f| %>
+        Salary: <%= f.text_field :salary %>
+        Confirm Password: <%= f.password_field :password %>
+        <%= f.submit "Update Salary" %>
+    <% end %>
+   <% else %>
+    <%= @user.salary %>
 <% end %>
 <p>
     <% @actions.each do |action| %>

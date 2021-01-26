@@ -5,7 +5,11 @@ class UsersController < ApplicationController
     end
 
     def show
-        current_user
+        if session[:user_id] && @user = User.find_by(:id => params[:id])
+            @actions = Action.all
+        else 
+            redirect_to root_path
+        end
     end
 
     def new
@@ -22,16 +26,30 @@ class UsersController < ApplicationController
             render :new
         end
     end
-
+    
+    def update
+        binding.pry
+        # if session[:user_id] && @user = User.find_by(:id => params[:id])
+        #     @user.update(user_params[:salary])
+        #     binding.pry
+        #     if @user.save
+        #         redirect_to user_path(@user)
+        #     else
+        #         redirect_to root_path
+        #     end
+        # end   
+    end
+    
+    
     private
 
-    def current_user
-        if session[:user_id] && @user = User.find_by(:id => params[:id])
-            @actions = Action.all
-        else 
-            redirect_to root_path
-        end
-    end
+    # def current_user
+    #     if session[:user_id] && @user = User.find_by(:id => params[:id])
+    #         @actions = Action.all
+    #     else 
+    #         redirect_to root_path
+    #     end
+    # end
 
     def user_params
         params.require(:user).permit(:name,:email,:salary,:password)
