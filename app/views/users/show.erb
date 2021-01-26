@@ -4,12 +4,12 @@
 
 <p>
 DASHBOARD:
-<p>
+<% if @user.strategies.any? %>
 
+    <% @user.strategies.each do |st| %><p>
+        <%= st.goal %>    
+    <% end %>
 
-
-
-<%= form_tag logout_path, :method => 'delete' do %>
-    <%= submit_tag "Logout" %>
 <% end %>
-<%# <%= link_to "Logout", logout_path, :method => 'delete' %> 
+<p>
+<%= link_to "Logout", logout_path, :method => 'delete' %> 
